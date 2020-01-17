@@ -18,13 +18,13 @@ export default class DirectoryMenu extends Component {
                     title: 'jackets',
                     imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
                     id: 2,
-                    linkUrl: 'shop/jackets'
+                    linkUrl: 'shop/clothes'
                 },
                 {
                     title: 'sneakers',
                     imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
                     id: 3,
-                    linkUrl: 'shop/sneakers'
+                    linkUrl: 'shop/shoes'
                 },
                 {
                     title: 'womens',
@@ -49,8 +49,8 @@ export default class DirectoryMenu extends Component {
 
         return (
             <div className="directory-menu">
-                {sections.map( ({ title, imageUrl, id }) => (
-                    <MenuItem key={id} title={title} imageUrl={imageUrl} />
+                {sections.map( ({ id, ...orther}) => (
+                    <MenuItem key={id} {...orther} />
                 )) }
             </div>
         )

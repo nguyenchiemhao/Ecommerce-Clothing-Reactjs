@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 
 import './menu-item.style.scss';
 import BackgroundImage from '../background-image/background-image.component';
+import { withRouter } from 'react-router-dom';
 
-export default class MenuItem extends Component {
+class MenuItem extends Component {
     render() {
-        const { title, imageUrl } = this.props;
+        const { title, imageUrl, linkUrl, history, match } = this.props;
         return (
-            <div className="menu-item">
-                <BackgroundImage imageUrl={imageUrl}/>
+            <div className="menu-item" onClick={() => history.push(`${match.url}${linkUrl}`)}>
+                <BackgroundImage imageUrl={imageUrl} />
                 <div className="content">
                     <h1 className="title">
                         {title}
@@ -21,3 +22,5 @@ export default class MenuItem extends Component {
         )
     }
 }
+
+export default withRouter(MenuItem);
